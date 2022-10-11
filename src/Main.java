@@ -16,7 +16,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("We are deciding on the price for our standard cupcake. Here is the description: ");
         cupcake.type();
-        System.out.println("How much would you like to charge for the cupcake?" + "\n(input a numerical number taken to 2 decimal places");
+        System.out.println("How much would you like to charge for the cupcake?" + "\n(input a numerical number taken to 2 decimal places)");
         //Create a String variable named priceText and assign it to the value of input.nextLine()
         String priceText = input.nextLine();
         //Create a double variable named price and set it equal to Double.parseDouble(priceText)
@@ -32,7 +32,7 @@ public class Main {
         redVelvet.setPrice(price);
         System.out.println("We are deciding on the price for our chocolate cupcake. Here is the description: ");
         chocolate.type();
-        System.out.println("How much would you like to charge for the cupcake?" + "\n(input a numerical number taken to 2 decimal places");
+        System.out.println("How much would you like to charge for the cupcake?" + "\n(input a numerical number taken to 2 decimal places)");
         priceText = input.nextLine();
         price = Double.parseDouble(priceText);
         chocolate.setPrice(price);
@@ -40,6 +40,37 @@ public class Main {
         cupcakeMenu.add(cupcake);
         cupcakeMenu.add(redVelvet);
         cupcakeMenu.add(chocolate);
+        //Create a new ArrayList which contains Drink and call it drinkMenu
+        ArrayList<Drink> drinkMenu = new ArrayList<Drink>();
+        Drink water = new Drink();
+        Drink soda = new Soda();
+        Drink milk = new Milk();
+        //Follow the same steps above to determine & set the prices of the drinks
+        System.out.println("We are in the middle of creating our drink menu. We currently have 3 types of drinks on" + "\nthe menu but we need to decide on pricing");
+        //We don't need a scanner object here because we will just use the one from before
+        System.out.println("We are deciding on the price for our bottled water. Here is the description: ");
+        water.type();
+        System.out.println("How much would you like to charge for the water?" + "\n(input a numerical number taken to 2 decimal places)");
+        priceText = input.nextLine();
+        price = Double.parseDouble(priceText);
+        water.setPrice(price);
+        System.out.println("We are deciding on the price for our bottled soda. Here is the description: ");
+        soda.type();
+        System.out.println("How much would you like to charge for the bottled soda?" + "\n(input a numerical number taken to 2 decimal places)");
+        priceText = input.nextLine();
+        price = Double.parseDouble(priceText);
+        soda.setPrice(price);
+        System.out.println("We are deciding on the price for our bottled milk. Here is the description: ");
+        milk.type();
+        System.out.println("How much would you like to charge for the bottled milk?" + "\n(input a numerical number taken to 2 decimal places)");
+        priceText = input.nextLine();
+        price = Double.parseDouble(priceText);
+        milk.setPrice(price);
+        //Now that we have the prices determined, we can call the setPrice() method with the parameter of the price on the object
+        drinkMenu.add(water);
+        drinkMenu.add(soda);
+        drinkMenu.add(milk);
+        new Order(cupcakeMenu, drinkMenu);
     }
 }
 
